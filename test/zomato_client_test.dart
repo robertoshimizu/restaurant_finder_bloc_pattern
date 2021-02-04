@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:restaurant_finder/DataLayer/entities.dart';
 

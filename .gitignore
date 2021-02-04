@@ -47,3 +47,4 @@ app.*.map.json
 
 # API keys
 zomato.json
+zomato_client.dart
