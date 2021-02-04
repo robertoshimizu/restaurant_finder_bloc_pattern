@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert' show json;
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
@@ -8,14 +9,19 @@ import 'location.dart';
 import 'restaurant.dart';
 
 class ZomatoClient {
-  final String _apiKey;
-  final String _host;
-  final String _contextRoot;
+  String _apiKey;
+  String _host;
+  String _contextRoot;
 
-  ZomatoClient.fromJson(Map<String, dynamic> json)
-      : _apiKey = json['apiKey'],
-        _host = json['host'],
-        _contextRoot = json['contextRoot'];
+  ZomatoClient() {
+    String contents = new File('zomato.json').readAsStringSync();
+    var jeson = json.decode(contents);
+    this._apiKey = jeson['apiKey'];
+    this._host = jeson['host'];
+    this._contextRoot = jeson['contextRoot'];
+  }
+
+  String get host => this._host;
 
   Future<List<Location>> fetchLocations(String query) async {
     final results = await request(
