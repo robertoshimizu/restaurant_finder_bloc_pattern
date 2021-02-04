@@ -9,19 +9,23 @@ import 'location.dart';
 import 'restaurant.dart';
 
 class ZomatoClient {
-  String _apiKey;
-  String _host;
-  String _contextRoot;
+  String _apiKey = "PASTE YOUR API KEY HERE";
+  String _host = "developers.zomato.com";
+  String _contextRoot = "api/v2.1";
 
-  ZomatoClient() {
-    String contents = new File('zomato.json').readAsStringSync();
-    var jeson = json.decode(contents);
-    this._apiKey = jeson['apiKey'];
-    this._host = jeson['host'];
-    this._contextRoot = jeson['contextRoot'];
-  }
+  // String _apiKey;
+  // String _host;
+  // String _contextRoot;
 
-  String get host => this._host;
+  // ZomatoClient() {
+  //   String contents = new File('zomato.json').readAsStringSync();
+  //   var jeson = json.decode(contents);
+  //   this._apiKey = jeson['apiKey'];
+  //   this._host = jeson['host'];
+  //   this._contextRoot = jeson['contextRoot'];
+  // }
+
+  // String get host => this._host;
 
   Future<List<Location>> fetchLocations(String query) async {
     final results = await request(
