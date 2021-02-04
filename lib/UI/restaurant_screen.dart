@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_finder/Bloc/bloc_provider.dart';
-import 'package:restaurant_finder/Bloc/restaurant_bloc.dart';
+import 'package:restaurant_finder/Bloc/blocs.dart';
+
 import 'package:restaurant_finder/DataLayer/entities.dart';
-import 'package:restaurant_finder/UI/widgets/image_container.dart';
+
+import 'screens.dart';
 
 class RestaurantScreen extends StatelessWidget {
   final Location location;
@@ -14,8 +15,23 @@ class RestaurantScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(location.title),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.favorite_border),
+              onPressed: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => FavoriteScreen()))),
+        ],
       ),
       body: _buildSearch(context),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.edit_location),
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => LocationScreen(
+                  // 1
+                  isFullScreenDialog: true,
+                ),
+            fullscreenDialog: true)),
+      ),
     );
   }
 
@@ -88,6 +104,14 @@ class RestaurantTile extends StatelessWidget {
       leading: ImageContainer(width: 50, height: 50, url: restaurant.thumbUrl),
       title: Text(restaurant.name),
       trailing: Icon(Icons.keyboard_arrow_right),
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) =>
+                RestaurantDetailsScreen(restaurant: restaurant),
+          ),
+        );
+      },
     );
   }
 }

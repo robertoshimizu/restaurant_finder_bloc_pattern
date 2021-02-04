@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import '../DataLayer/entities.dart';
-import 'bloc.dart';
+import 'bloc_class.dart';
 
 class LocationBloc implements Bloc {
   Location _location;

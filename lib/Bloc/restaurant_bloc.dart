@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:restaurant_finder/DataLayer/entities.dart';
 
-import 'bloc.dart';
+import 'bloc_class.dart';
 
 class RestaurantBloc implements Bloc {
   final Location location;

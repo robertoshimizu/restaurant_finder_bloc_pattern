@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_finder/Bloc/bloc_provider.dart';
-import 'package:restaurant_finder/Bloc/location_bloc.dart';
-import 'package:restaurant_finder/Bloc/location_query_bloc.dart';
-import 'package:restaurant_finder/DataLayer/location.dart';
+
+import '../Bloc/blocs.dart';
+import '../DataLayer/entities.dart';
 
 class LocationScreen extends StatelessWidget {
   final bool isFullScreenDialog;

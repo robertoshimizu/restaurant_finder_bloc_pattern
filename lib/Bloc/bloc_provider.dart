@@ -2,7 +2,7 @@
 
 import 'package:flutter/widgets.dart';
 
-import 'bloc.dart';
+import 'bloc_class.dart';
 
 class BlocProvider<T extends Bloc> extends StatefulWidget {
   final Widget child;

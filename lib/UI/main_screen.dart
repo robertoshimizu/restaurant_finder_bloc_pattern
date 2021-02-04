@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_finder/Bloc/bloc_provider.dart';
-import 'package:restaurant_finder/Bloc/location_bloc.dart';
+import 'package:restaurant_finder/Bloc/blocs.dart';
+
 import 'package:restaurant_finder/DataLayer/entities.dart';
-import 'package:restaurant_finder/UI/restaurant_screen.dart';
 
 import 'screens.dart';
 
